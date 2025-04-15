@@ -13,3 +13,4 @@ struct GenreResponse: Decodable {
     let id: Int
     let name: String
 }
+
