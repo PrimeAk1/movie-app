@@ -8,7 +8,9 @@
 import SwiftUI
 
 @main
-struct movie_appApp: App {
+struct movie_app_liveApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             GenreSectionView()

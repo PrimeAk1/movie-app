@@ -7,9 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8F94EA012DAA65E200BA818C /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8F94EA002DAA65E200BA818C /* CombineMoya */; };
-		8F94EA032DAA65E200BA818C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8F94EA022DAA65E200BA818C /* Moya */; };
+		8F6F30112DAE994000FF7E59 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 8F9AAC6D2DAE9059007DD22C /* Swinject */; };
+		8F9AAC612DAE8F61007DD22C /* InjectPropertyWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 8F9AAC602DAE8F61007DD22C /* InjectPropertyWrapper */; };
+		8F9AAC712DAE90EC007DD22C /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8F94EA002DAA65E200BA818C /* CombineMoya */; };
+		8F9AAC722DAE90EC007DD22C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8F94EA022DAA65E200BA818C /* Moya */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8F6F30CB2DAE9E5F00FF7E59 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8F94E9D42DAA592700BA818C /* movie-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "movie-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,8 +56,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F94EA032DAA65E200BA818C /* Moya in Frameworks */,
-				8F94EA012DAA65E200BA818C /* CombineMoya in Frameworks */,
+				8F6F30112DAE994000FF7E59 /* Swinject in Frameworks */,
+				8F9AAC722DAE90EC007DD22C /* Moya in Frameworks */,
+				8F9AAC712DAE90EC007DD22C /* CombineMoya in Frameworks */,
+				8F9AAC612DAE8F61007DD22C /* InjectPropertyWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				8F94E9D62DAA592700BA818C /* movie-app */,
+				8F9AAC672DAE8FD8007DD22C /* Frameworks */,
 				8F94E9D52DAA592700BA818C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +83,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8F9AAC672DAE8FD8007DD22C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -75,6 +100,7 @@
 				8F94E9D02DAA592700BA818C /* Sources */,
 				8F94E9D12DAA592700BA818C /* Frameworks */,
 				8F94E9D22DAA592700BA818C /* Resources */,
+				8F6F30CB2DAE9E5F00FF7E59 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -87,6 +113,8 @@
 			packageProductDependencies = (
 				8F94EA002DAA65E200BA818C /* CombineMoya */,
 				8F94EA022DAA65E200BA818C /* Moya */,
+				8F9AAC602DAE8F61007DD22C /* InjectPropertyWrapper */,
+				8F9AAC6D2DAE9059007DD22C /* Swinject */,
 			);
 			productName = "movie-app";
 			productReference = 8F94E9D42DAA592700BA818C /* movie-app.app */;
@@ -118,6 +146,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				8F94E9FF2DAA65E200BA818C /* XCRemoteSwiftPackageReference "Moya" */,
+				8F9AAC5F2DAE8F61007DD22C /* XCRemoteSwiftPackageReference "InjectPropertyWrapper" */,
+				8F9AAC6C2DAE9059007DD22C /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8F94E9D52DAA592700BA818C /* Products */;
@@ -235,9 +265,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.project.movie-app.dev";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.project.movie-app.tv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = ENV_DEV;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = ENV_TV;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -295,6 +325,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -307,6 +338,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FK4377FTUZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "movie-app/Info.plist";
@@ -321,9 +353,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.project.movie-app.dev";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.project.movie-app.tv";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = ENV_DEV;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = ENV_TV;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -444,6 +476,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -654,6 +687,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -729,6 +763,22 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		8F9AAC5F2DAE8F61007DD22C /* XCRemoteSwiftPackageReference "InjectPropertyWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/egeniq/InjectPropertyWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+		8F9AAC6C2DAE9059007DD22C /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -741,6 +791,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8F94E9FF2DAA65E200BA818C /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		8F9AAC602DAE8F61007DD22C /* InjectPropertyWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F9AAC5F2DAE8F61007DD22C /* XCRemoteSwiftPackageReference "InjectPropertyWrapper" */;
+			productName = InjectPropertyWrapper;
+		};
+		8F9AAC6D2DAE9059007DD22C /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F9AAC6C2DAE9059007DD22C /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

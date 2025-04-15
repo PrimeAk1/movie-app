@@ -7,26 +7,21 @@
 
 import Foundation
 
-struct Environment {
+struct Environments {
     
     enum Name {
         case prod
         case dev
-    }
-
-    enum Variant {
-        case movie
         case tv
     }
+
     
     #if ENV_PROD
     static let name: Name = .prod
-    #else
+    #elseif ENV_DEV
     static let name: Name = .dev
+    #else
+    static let name: Name = .tv
     #endif
 
-    static let variant: Variant = {
-        let raw = ProcessInfo.processInfo.environment["APP_VARIANT"] ?? "movie"
-        return raw.lowercased() == "tv" ? .tv : .movie
-    }()
 }

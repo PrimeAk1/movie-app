@@ -1,29 +1,24 @@
 
 
 import SwiftUI
+import InjectPropertyWrapper
 
-enum GenreType {
-    case movie, tv
+protocol GenreSectionViewModelProtocol: ObservableObject {
+    
 }
 
-
-class GenreSectionViewModel: ObservableObject {
+class GenreSectionViewModel: GenreSectionViewModelProtocol {
     @Published var genres: [Genre] = []
-
-    private var movieService: MoviesServiceProtocol = MoviesService()
-
-    func fetchGenres(type: GenreType = .movie) async {
+    
+    @Inject
+    private var movieService: MoviesServiceProtocol
+    
+    func fetchGenres() async {
+        
         do {
             let request = FetchGenreRequest()
-            let genres: [Genre]
-            
-            switch type {
-            case .movie:
-                genres = try await movieService.fetchGenres(req: request)
-            case .tv:
-                genres = try await movieService.fetchTvGenres(req: request)
-            }
-
+            let genres = Environments.name == .tv ? try await movieService.fetchTvGenres(req: request) :
+                                                    try await movieService.fetchGenres(req: request)
             DispatchQueue.main.async {
                 self.genres = genres
             }
@@ -33,45 +28,45 @@ class GenreSectionViewModel: ObservableObject {
     }
 }
 
-    struct GenreSectionView: View {
-        
-        @StateObject private var viewModel = GenreSectionViewModel()
-        
-        var body: some View {
-            NavigationView {
-                List(viewModel.genres) { genre in
-                    ZStack {
-                        NavigationLink(destination: Color.gray) {
-                            EmptyView()
-                        }
-                        .opacity(0)
-                        
-                        HStack {
-                            Text(genre.name)
-                                .font(Fonts.title)
-                                .foregroundStyle(.primary)
-                            Spacer()
-                            Image(.rightArrow)
-                        }
-                        
+struct GenreSectionView: View {
+    
+    @StateObject private var viewModel = GenreSectionViewModel()
+    
+    var body: some View {
+        NavigationView {
+            List(viewModel.genres) { genre in
+                ZStack {
+                    NavigationLink(destination: MovieListView(genre: genre)) {
+                        EmptyView()
                     }
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
+                    .opacity(0)
+
+                    HStack {
+                        Text(genre.name)
+                            .font(Fonts.title)
+                            .foregroundStyle(.primary)
+                        Spacer()
+                        Image(.rightArrow)
+                    }
+                    
                 }
-                .listStyle(.plain)
-                .navigationTitle(Environment.variant == .tv ? "TV" : "MOVIE")
-                
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
             }
-            .onAppear {
-                Task {
-                        let genreType: GenreType = (Environment.variant == .tv ? .tv : .movie)
-                        await viewModel.fetchGenres(type: genreType)
-                    }
+            .listStyle(.plain)
+            .navigationTitle(Environments.name == .tv ? "TV" : "genreSection.title")
+            
+        }
+        .onAppear {
+            Task {
+                await viewModel.fetchGenres()
             }
             
         }
         
     }
+}
+
 #Preview {
     GenreSectionView()
 }
