@@ -12,10 +12,10 @@ enum MoviesApi {
     case fetchGenres(req: FetchGenreRequest)
     case fetchTvGenres(req: FetchGenreRequest)
     case fetchMovies(req: FetchMoviesRequest)
+    case searchMovie(req: FetchMoviesRequest)
 }
 
 extension MoviesApi: TargetType {
-    //    TODO Másik base url
     var baseURL: URL {
         let baseUrl = "https://api.themoviedb.org/3/"
         guard let baseUrl = URL(string: baseUrl) else {
@@ -32,12 +32,14 @@ extension MoviesApi: TargetType {
             return "genre/tv/list"
         case .fetchMovies(req: let req):
             return "discover/movie"
+        case .searchMovie(req: let req):
+            return "search/movie"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .fetchGenres, .fetchTvGenres, .fetchMovies:
+        case .fetchGenres, .fetchTvGenres, .fetchMovies, .searchMovie:
             return .get
         }
     }
@@ -49,6 +51,8 @@ extension MoviesApi: TargetType {
             return .requestParameters(parameters: req.asRequestParams(), encoding: URLEncoding.queryString)
         case .fetchMovies(req: let req):
             return .requestParameters(parameters: req.asRequestParams(), encoding: URLEncoding.queryString)
+        case .searchMovie(req: let req):
+            return .requestParameters(parameters: req.asRequestParams(), encoding: URLEncoding.queryString)
         }
     }
 
@@ -58,6 +62,8 @@ extension MoviesApi: TargetType {
             let .fetchTvGenres(req):
             return ["Authorization": req.accessToken]
         case let .fetchMovies(req):
+            return ["Authorization": req.accessToken]
+        case .searchMovie(req: let req):
             return ["Authorization": req.accessToken]
         }
     }

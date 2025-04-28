@@ -13,7 +13,7 @@ struct movie_app_liveApp: App {
     
     var body: some Scene {
         WindowGroup {
-            GenreSectionView()
+            MainTabView()
         }
     }
 }
