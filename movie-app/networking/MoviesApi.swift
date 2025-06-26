@@ -24,6 +24,7 @@ enum MoviesApi {
     case fetchMovieReviews(req: FetchMovieReviewsRequest)
     case fetchCastMemberDetail(req: FetchCastMemberDetailRequest)
     case fetchCompanyDetail(req: FetchCastMemberDetailRequest)
+    case fetchSimilarMovies(req: FetchSimilarMoviesRequest)
 }
 
 extension MoviesApi: TargetType {
@@ -66,12 +67,14 @@ extension MoviesApi: TargetType {
             return "person/\(req.castMemberId)"
         case .fetchCompanyDetail(req: let req):
             return "company/\(req.castMemberId)"
+        case .fetchSimilarMovies(req: let req):
+            return "movie/\(req.movieId)/similar"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .fetchGenres, .fetchTVGenres, .fetchMovies, .fetchTV, .searchMovies, .fetchFavoriteMovies, .fetchMovieDetail, .fetchMovieCredits, .fetchMovieReviews, .fetchCastMemberDetail, .fetchCompanyDetail, .fetchTVDetail, .fetchTVCredits:
+        case .fetchGenres, .fetchTVGenres, .fetchMovies, .fetchTV, .searchMovies, .fetchFavoriteMovies, .fetchMovieDetail, .fetchMovieCredits, .fetchMovieReviews, .fetchCastMemberDetail, .fetchCompanyDetail, .fetchTVDetail, .fetchTVCredits, .fetchSimilarMovies:
             return .get
         case .editFavoriteMovie:
             return .post
@@ -111,6 +114,8 @@ extension MoviesApi: TargetType {
             return .requestParameters(parameters: req.asRequestParams(), encoding: URLEncoding.queryString)
         case .fetchCompanyDetail(req: let req):
             return .requestParameters(parameters: req.asRequestParams(), encoding: URLEncoding.queryString)
+        case .fetchSimilarMovies(req: let req):
+            return .requestParameters(parameters: req.asRequestParams(), encoding: URLEncoding.queryString)
         }
     }
     
@@ -149,6 +154,8 @@ extension MoviesApi: TargetType {
         case .fetchCastMemberDetail(req: let req):
             return ["Authorization": req.accessToken]
         case .fetchCompanyDetail(req: let req):
+            return ["Authorization": req.accessToken]
+        case .fetchSimilarMovies(req: let req):
             return ["Authorization": req.accessToken]
         }
     }

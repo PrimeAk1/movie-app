@@ -66,6 +66,8 @@ struct DetailView: View {
                 ParticipantScrollView(title: "detail.cast".localized(), participants: credits, navigationType: .castMember)
                 
                 ReviewScrollView(reviews: viewModel.reviews)
+                
+                SimilarMoviesScrollView(movies: viewModel.similarMovies)
             }
             .padding(.horizontal, LayoutConst.maxPadding)
             .padding(.bottom, LayoutConst.largePadding)
