@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F517A9E2E0C7B58002B3504 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8F517A9D2E0C7B58002B3504 /* FirebaseAnalytics */; };
+		8F664C162E0C7F0900D58BE5 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8F664C152E0C7F0900D58BE5 /* RealmSwift */; };
+		8F664C182E0C811100D58BE5 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 8F664C172E0C811100D58BE5 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		8F664C1A2E0C811100D58BE5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8F664C192E0C811100D58BE5 /* FirebaseCrashlytics */; };
 		8F6F30112DAE994000FF7E59 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 8F9AAC6D2DAE9059007DD22C /* Swinject */; };
 		8F95F1432DB7B49D008DDFB5 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 8F95F1422DB7B49D008DDFB5 /* Nimble */; };
 		8F95F1462DB7B4C1008DDFB5 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 8F95F1452DB7B4C1008DDFB5 /* Quick */; };
 		8F9AAC612DAE8F61007DD22C /* InjectPropertyWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 8F9AAC602DAE8F61007DD22C /* InjectPropertyWrapper */; };
 		8F9AAC712DAE90EC007DD22C /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8F94EA002DAA65E200BA818C /* CombineMoya */; };
 		8F9AAC722DAE90EC007DD22C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8F94EA022DAA65E200BA818C /* Moya */; };
+		8FDEE3932E0C783E00DDFBEF /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 8FDEE3922E0C783E00DDFBEF /* Shimmer */; };
+		8FDEE3962E0C786100DDFBEF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8FDEE3952E0C786100DDFBEF /* Lottie */; };
+		8FDEE39C2E0C78B900DDFBEF /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 8FDEE39B2E0C78B900DDFBEF /* Reachability */; };
+		8FDEE39F2E0C78D400DDFBEF /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8FDEE39E2E0C78D400DDFBEF /* SDWebImageSwiftUI */; };
+		8FDEE3A52E0C794600DDFBEF /* PullToRefreshSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8FDEE3A42E0C794600DDFBEF /* PullToRefreshSwiftUI */; };
+		8FECAE9F2E0CA04800EDE9DA /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 8FECAE9E2E0CA04800EDE9DA /* ViewInspector */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,11 +72,6 @@
 			path = "movie-app";
 			sourceTree = "<group>";
 		};
-		8F95F1352DB7B2B2008DDFB5 /* movie-appTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "movie-appTests";
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,10 +79,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F664C182E0C811100D58BE5 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				8F664C162E0C7F0900D58BE5 /* RealmSwift in Frameworks */,
 				8F6F30112DAE994000FF7E59 /* Swinject in Frameworks */,
+				8F664C1A2E0C811100D58BE5 /* FirebaseCrashlytics in Frameworks */,
+				8F517A9E2E0C7B58002B3504 /* FirebaseAnalytics in Frameworks */,
+				8FDEE3A52E0C794600DDFBEF /* PullToRefreshSwiftUI in Frameworks */,
+				8FDEE3932E0C783E00DDFBEF /* Shimmer in Frameworks */,
+				8FDEE39F2E0C78D400DDFBEF /* SDWebImageSwiftUI in Frameworks */,
 				8F9AAC722DAE90EC007DD22C /* Moya in Frameworks */,
 				8F9AAC712DAE90EC007DD22C /* CombineMoya in Frameworks */,
+				8FDEE39C2E0C78B900DDFBEF /* Reachability in Frameworks */,
 				8F9AAC612DAE8F61007DD22C /* InjectPropertyWrapper in Frameworks */,
+				8FDEE3962E0C786100DDFBEF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +101,7 @@
 			files = (
 				8F95F1462DB7B4C1008DDFB5 /* Quick in Frameworks */,
 				8F95F1432DB7B49D008DDFB5 /* Nimble in Frameworks */,
+				8FECAE9F2E0CA04800EDE9DA /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				8F94E9D62DAA592700BA818C /* movie-app */,
-				8F95F1352DB7B2B2008DDFB5 /* movie-appTests */,
 				8F9AAC672DAE8FD8007DD22C /* Frameworks */,
 				8F94E9D52DAA592700BA818C /* Products */,
 			);
@@ -144,6 +158,15 @@
 				8F94EA022DAA65E200BA818C /* Moya */,
 				8F9AAC602DAE8F61007DD22C /* InjectPropertyWrapper */,
 				8F9AAC6D2DAE9059007DD22C /* Swinject */,
+				8FDEE3922E0C783E00DDFBEF /* Shimmer */,
+				8FDEE3952E0C786100DDFBEF /* Lottie */,
+				8FDEE39B2E0C78B900DDFBEF /* Reachability */,
+				8FDEE39E2E0C78D400DDFBEF /* SDWebImageSwiftUI */,
+				8FDEE3A42E0C794600DDFBEF /* PullToRefreshSwiftUI */,
+				8F517A9D2E0C7B58002B3504 /* FirebaseAnalytics */,
+				8F664C152E0C7F0900D58BE5 /* RealmSwift */,
+				8F664C172E0C811100D58BE5 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				8F664C192E0C811100D58BE5 /* FirebaseCrashlytics */,
 			);
 			productName = "movie-app";
 			productReference = 8F94E9D42DAA592700BA818C /* movie-app.app */;
@@ -162,13 +185,11 @@
 			dependencies = (
 				8F95F1392DB7B2B2008DDFB5 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				8F95F1352DB7B2B2008DDFB5 /* movie-appTests */,
-			);
 			name = "movie-appTests";
 			packageProductDependencies = (
 				8F95F1422DB7B49D008DDFB5 /* Nimble */,
 				8F95F1452DB7B4C1008DDFB5 /* Quick */,
+				8FECAE9E2E0CA04800EDE9DA /* ViewInspector */,
 			);
 			productName = "movie-appTests";
 			productReference = 8F95F1342DB7B2B2008DDFB5 /* movie-appTests.xctest */;
@@ -199,6 +220,8 @@
 			knownRegions = (
 				en,
 				Base,
+				hu,
+				ru,
 			);
 			mainGroup = 8F94E9CB2DAA592700BA818C;
 			minimizedProjectReferenceProxies = 1;
@@ -208,6 +231,14 @@
 				8F9AAC6C2DAE9059007DD22C /* XCRemoteSwiftPackageReference "Swinject" */,
 				8F95F1412DB7B49D008DDFB5 /* XCRemoteSwiftPackageReference "Nimble" */,
 				8F95F1442DB7B4C1008DDFB5 /* XCRemoteSwiftPackageReference "Quick" */,
+				8FDEE3912E0C783E00DDFBEF /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+				8FDEE3942E0C786100DDFBEF /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				8FDEE39A2E0C78B900DDFBEF /* XCRemoteSwiftPackageReference "Reachability" */,
+				8FDEE39D2E0C78D400DDFBEF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				8FDEE3A32E0C794600DDFBEF /* XCRemoteSwiftPackageReference "PullToRefreshSwiftUI" */,
+				8F517A9C2E0C7B58002B3504 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8F664C142E0C7F0900D58BE5 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				8FECAE9D2E0CA04800EDE9DA /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8F94E9D52DAA592700BA818C /* Products */;
@@ -317,6 +348,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -405,6 +437,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -499,6 +532,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -556,6 +590,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -680,6 +715,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -767,6 +803,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1274,6 +1311,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8F517A9C2E0C7B58002B3504 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.15.0;
+			};
+		};
+		8F664C142E0C7F0900D58BE5 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		8F94E9FF2DAA65E200BA818C /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -1314,9 +1367,77 @@
 				minimumVersion = 2.9.1;
 			};
 		};
+		8FDEE3912E0C783E00DDFBEF /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+		8FDEE3942E0C786100DDFBEF /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.2;
+			};
+		};
+		8FDEE39A2E0C78B900DDFBEF /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		8FDEE39D2E0C78D400DDFBEF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
+		8FDEE3A32E0C794600DDFBEF /* XCRemoteSwiftPackageReference "PullToRefreshSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/shakurocom/PullToRefreshSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.5;
+			};
+		};
+		8FECAE9D2E0CA04800EDE9DA /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8F517A9D2E0C7B58002B3504 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F517A9C2E0C7B58002B3504 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		8F664C152E0C7F0900D58BE5 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F664C142E0C7F0900D58BE5 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		8F664C172E0C811100D58BE5 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F517A9C2E0C7B58002B3504 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		8F664C192E0C811100D58BE5 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F517A9C2E0C7B58002B3504 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		8F94EA002DAA65E200BA818C /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8F94E9FF2DAA65E200BA818C /* XCRemoteSwiftPackageReference "Moya" */;
@@ -1346,6 +1467,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8F9AAC6C2DAE9059007DD22C /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		8FDEE3922E0C783E00DDFBEF /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FDEE3912E0C783E00DDFBEF /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
+		8FDEE3952E0C786100DDFBEF /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FDEE3942E0C786100DDFBEF /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		8FDEE39B2E0C78B900DDFBEF /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FDEE39A2E0C78B900DDFBEF /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
+		8FDEE39E2E0C78D400DDFBEF /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FDEE39D2E0C78D400DDFBEF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		8FDEE3A42E0C794600DDFBEF /* PullToRefreshSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FDEE3A32E0C794600DDFBEF /* XCRemoteSwiftPackageReference "PullToRefreshSwiftUI" */;
+			productName = PullToRefreshSwiftUI;
+		};
+		8FECAE9E2E0CA04800EDE9DA /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FECAE9D2E0CA04800EDE9DA /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
