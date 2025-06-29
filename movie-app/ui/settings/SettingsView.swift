@@ -5,7 +5,6 @@
 //  Created by Akos  Gegeny   on 2025. 04. 29..
 //
 
-
 import SwiftUI
 import InjectPropertyWrapper
 import FirebaseCrashlytics
@@ -67,12 +66,29 @@ struct SettingsView: View {
                 
                 Spacer()
                 VStack(spacing: LayoutConst.smallPadding) {
-                    Text("Version 0.9.1")
-                    Text("Created by Hell yeah")
+                    Text("Version \(viewModel.appInfo)")
+                    Text("Created by Anpnymous")
                 }
                 .font(Fonts.subheading)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.bottom, 66)
+                
+                Button {
+                    viewModel.nonEscapingMethond {
+                        print("non escaping success")
+                    }
+                } label: {
+                    Text("Non escaping")
+                }
+                
+                Button {
+                    viewModel.escapingMethond {
+                        print("escaping success")
+                    }
+                } label: {
+                    Text("Escaping")
+                }
+
             }
             .padding(LayoutConst.maxPadding)
             .navigationTitle("settings.title".localized())

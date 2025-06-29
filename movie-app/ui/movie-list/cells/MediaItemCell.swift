@@ -19,9 +19,9 @@ struct MediaItemCell: View {
             }
             .frame(height: 100)
             .frame(maxHeight: 180)
-            //.frame(maxWidth: .infinity)
             .cornerRadius(12)
             .shimmering()
+            .allowsHitTesting(false)
         } else {
             VStack(alignment: .leading, spacing: LayoutConst.smallPadding) {
                 ZStack(alignment: .topLeading) {
@@ -29,7 +29,6 @@ struct MediaItemCell: View {
                         LoadImageView(url: movie.imageUrl)
                         .frame(height: 100)
                         .frame(maxHeight: 180)
-                        //.frame(maxWidth: .infinity)
                         .cornerRadius(12)
                     }
                     
@@ -61,19 +60,20 @@ struct MediaItemCell: View {
                     Image(.playButton)
                 }
             }
+            .contentShape(Rectangle())
         }
         
     }
 }
 
 #Preview {
-                            MediaItemCell(movie: MediaItem(id: 2,
-                           title: "Mock movie2",
-                           year: "2024",
-                           duration: "1h 34m",
-                           imageUrl: nil,
-                           rating: 1.0,
-                           voteCount: 1000
-                        )
+    MediaItemCell(movie: MediaItem(id: 2,
+                                   title: "Mock movie2",
+                                   year: "2024",
+                                   duration: "1h 34m",
+                                   imageUrl: nil,
+                                   rating: 1.0,
+                                   voteCount: 1000
+                                  )
     )
 }
