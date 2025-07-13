@@ -23,7 +23,7 @@ class GenreSectionUseCaseImpl: GenreSectionUseCase {
     
     var showAppearPopup: AnyPublisher<Bool, Never> {
         appearSubject.map { counter in
-            counter == 3
+            counter == 10
         }
         .eraseToAnyPublisher()
     }
@@ -49,7 +49,7 @@ class GenreSectionUseCaseImpl: GenreSectionUseCase {
     
     func loadMovies(for genre: Genre) -> AnyPublisher<[MediaItem], MovieError> {
         let request = FetchMediaListRequest(genreId: genre.id, includeAdult: true)
-        let response =  Environments.name == .tv ? self.repository.fetchTV(req: request) : self.repository.fetchMovies(req: request)
+        let response =  Environments.name == .tv ? self.repository.fetchTVs(req: request) : self.repository.fetchMovies(req: request)
         return response
             .map({ page in
                 page.mediaItems

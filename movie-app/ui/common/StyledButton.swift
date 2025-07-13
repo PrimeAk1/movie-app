@@ -1,5 +1,5 @@
 //
-//  ButtonStyleType.swift
+//  StyledButton.swift
 //  movie-app
 //
 //  Created by Akos  Gegeny   on 2025. 05. 12..
@@ -43,11 +43,17 @@ struct StyledButton: View {
         switch action {
         case .simple:
             Text(title.localized())
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
         case .link(let url):
             if let url = url {
                 Link(title, destination: url)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
             } else {
                 Text(title.localized())
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
             }
             
         }

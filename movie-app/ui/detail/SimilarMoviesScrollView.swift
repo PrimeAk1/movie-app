@@ -21,6 +21,7 @@ struct SimilarMoviesScrollView: View {
                     }
                 }
             }
+            
         }
         .padding(.bottom, 80)
     }

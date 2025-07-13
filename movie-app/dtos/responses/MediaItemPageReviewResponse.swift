@@ -1,12 +1,17 @@
-
+//
+//  MediaItemPageReviewResponse.swift
+//  movie-app
+//
+//  Created by Akos  Gegeny   on 2025. 07. 13..
+//
 
 
 import Foundation
 
-struct MovieReviewsResponse: Decodable {
+struct MediaItemPageReviewResponse: Decodable {
     let id: Int
     let page: Int
-    let results: [MovieReviewResponse]
+    let results: [MediaItemReviewResponse]
     let totalPages: Int
     let totalResults: Int
     
@@ -19,7 +24,7 @@ struct MovieReviewsResponse: Decodable {
     }
 }
 
-struct MovieReviewResponse: Decodable {
+struct MediaItemReviewResponse: Decodable {
     let author: String
     let content: String
     let createdAt: String

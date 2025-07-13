@@ -43,6 +43,10 @@ class ServiceAssembly: Assembly {
             return MediaItemDetailStore()
         }.inObjectScope(.container)
         
+        container.register(ReviewStoreProtocol.self) { _ in
+            return ReviewStore()
+        }.inObjectScope(.container)
+        
         container.register(CastMemberStoreProtocol.self) { _ in
             return CastMemberStore()
         }.inObjectScope(.container)
@@ -56,7 +60,7 @@ class ServiceAssembly: Assembly {
         }.inObjectScope(.container)
         
         container.register(AppVersionProviderProtocol.self) { _ in
-                    return AppVersionProvider()
-                }.inObjectScope(.container)
+            return AppVersionProvider()
+        }.inObjectScope(.container)
     }
 }

@@ -22,9 +22,12 @@ class CastMemberStore: CastMemberStoreProtocol {
 
     func getCastMembers(fromMovieId movieId: Int) -> AnyPublisher<[CastMember], MovieError> {
         let results = realm.objects(CastMemberEntity.self)
-            .where {
-                $0.movieId == movieId
+            .where { entity in
+                entity.movieId == movieId
             }
+//            .where {
+//                $0.movieId == movieId
+//            }
         let castMembers = results.map { $0.toDomain }
         return Just(Array(castMembers))
             .setFailureType(to: MovieError.self)
@@ -32,10 +35,10 @@ class CastMemberStore: CastMemberStoreProtocol {
     }
 
     func saveCastMembers(_ items: [CastMember], forMovieId movieId: Int) {
-        let entities = items.map { cast in
+        let entities = items.map( { cast in
             let entity = CastMemberEntity(from: cast, movieId: movieId)
             return entity
-        }
+        })
         try? realm.write {
             realm.add(entities, update: .modified)
         }

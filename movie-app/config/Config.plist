@@ -4,5 +4,7 @@
 <dict>
 	<key>API_TOKEN</key>
 	<string>eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YWIyNGIxZWE2MTM3MTQwZmFiY2FhOGVhNjViYzJhZSIsIm5iZiI6MTc0NDY2MjA2OS41MTUsInN1YiI6IjY3ZmQ2ZTM1N2MyOWFlNWJjM2Q5NmQ0MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.d0xhYQ1pRdDNy_PWdyeZYy8WL0dbD5CzcGj6IgWBtlg</string>
+	<key>ACCOUNT_ID</key>
+	<integer>21948779</integer>
 </dict>
 </plist>

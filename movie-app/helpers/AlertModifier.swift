@@ -12,7 +12,7 @@ struct AlertModifier: ViewModifier {
     @Binding var model: AlertModel?
     
     func body(content: Content) -> some View {
-        content.alert(item: $model) { model in
+        content.alert(item: $model, content: { model in
             Alert(
                 title: Text(model.title.localized()),
                 message: Text(model.message.localized()),
@@ -20,7 +20,7 @@ struct AlertModifier: ViewModifier {
                     self.model = nil
                 }
             )
-        }
+        })
     }
 }
 

@@ -41,7 +41,6 @@ struct MainTabView: View {
                     .background(Color.tabBarBackground)
                     .ignoresSafeArea()
                 
-                
                 SearchView()
                     .tag(TabType.search)
                     .background(Color.tabBarBackground)

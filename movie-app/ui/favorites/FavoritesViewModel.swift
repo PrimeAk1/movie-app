@@ -5,7 +5,6 @@
 //  Created by Akos  Gegeny   on 2025. 04. 29..
 //
 
-
 import Foundation
 import Combine
 import InjectPropertyWrapper
@@ -32,7 +31,10 @@ class FavoritesViewModel: FavoritesViewModelProtocol, ErrorPresentable {
                 guard let self = self else {
                     preconditionFailure("There is no self")
                 }
-                return self.repository.fetchFavoriteMovies(req: FetchFavoriteMovieRequest(), fromLocal: false)
+                return Environments.name == .tv ?
+                self.repository.fetchFavoriteTVs(req: FetchFavoriteMediaItemRequest(),
+                                                                                   fromLocal: false) : self.repository.fetchFavoriteMovies(req: FetchFavoriteMediaItemRequest(),
+                                                                                   fromLocal: false)
             }
             .receive(on: RunLoop.main)
             .sink { completion in

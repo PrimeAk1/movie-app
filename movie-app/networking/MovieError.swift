@@ -21,8 +21,6 @@ enum MovieError: Error {
         case .invalidApiKeyError, .unexpectedError, .clientError, .mappingError, .noInternetError:
             return "MovieError"
         }
-        
-    
     }
 }
 
@@ -66,11 +64,11 @@ extension MovieError: CustomNSError {
 
 extension Publisher where Failure == Error {
     func rethrowErrorAsMovieError() -> AnyPublisher<Output, MovieError> {
-        self.mapError { error -> MovieError in
+        self.mapError( { error -> MovieError in
             let movieError = mapToMovieError(error)
             //Crashlytics.crashlytics().record(error: movieError)
             return movieError
-        }
+        } )
         .eraseToAnyPublisher()
     }
 }

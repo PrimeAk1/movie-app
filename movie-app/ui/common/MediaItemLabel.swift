@@ -34,7 +34,7 @@ struct MediaItemLabel: View {
             text = "\(popularity)"
             imageRes = .person
         case .adult(let adult):
-            text = adult ? "available" : "unavailable"
+            text = adult ? "adult.only".localized() : "everyone".localized()
             imageRes = .closeCaption
         }
         
@@ -42,6 +42,8 @@ struct MediaItemLabel: View {
             Image(imageRes)
             Text(text.localized())
                 .font(Fonts.labelBold)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
         }
         .padding(6.0)
         .background(Color.mainLabelForeground)

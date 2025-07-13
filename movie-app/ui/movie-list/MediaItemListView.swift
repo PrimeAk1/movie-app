@@ -5,13 +5,14 @@
 //  Created by Akos  Gegeny   on 2025. 04. 15..
 //
 
-
 import SwiftUI
 import InjectPropertyWrapper
 
 struct MediaItemListView: View {
     @StateObject private var viewModel = MediaItemListViewModel()
     let genre: Genre
+    
+    @EnvironmentObject private var langaugeManager: LanguageManager
     
     let columns = [
         GridItem(.adaptive(minimum: 150), spacing: 16)

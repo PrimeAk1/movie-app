@@ -5,6 +5,7 @@
 //  Created by Akos  Gegeny   on 2025. 04. 29..
 //
 
+
 import Foundation
 import SwiftUI
 import InjectPropertyWrapper
@@ -26,6 +27,8 @@ class SettingsViewModel: SettingsViewModelProtocol {
     @Inject
     private var appVersionProvider: AppVersionProviderProtocol
     
+    private let languageManager = LanguageManager.shared
+    
     init() {
         let storedThem = UserDefaults.standard.string(forKey: "color-scheme")
         self.selectedTheme = Theme(rawValue: storedThem ?? "") ?? .light
@@ -35,24 +38,11 @@ class SettingsViewModel: SettingsViewModelProtocol {
     
     func changeSelectedLanguge(_ language: String) {
         self.selectedLanguage = language
-        Bundle.setLanguage(lang: language)
+        languageManager.setLanguage(language)
     }
     
     func changeTheme(_ theme: Theme) {
         self.selectedTheme = theme
-    }
-    
-    func escapingMethond(closure: @escaping () -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            closure()
-        }
-    }
-    
-    func nonEscapingMethond(closure: () -> Void) {
-        closure()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            //closure()
-        }
     }
     
 }

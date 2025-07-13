@@ -1,16 +1,13 @@
-/* 
-  Localizable.strings
-  movie-app-live
 
-  Created by Zsolt Pete on 2025. 04. 08..
-  
-*/
 
 "genreSection.title" = "Filmes app";
 "search.empty.title" = "Kezdj el gépelni\na kereséshez";
 "search.textfield.placeholder" = "Filmek, Rendező, Színész, Színésznő, stb.";
 "button.close.text" = "Bezárás";
 "unexpected.error.title" = "Váratlan hiba";
+"apierror.error.title" = "API hiba";
+"clienterror.error.title" = "Kliens hiba";
+"mappingerror.error.title" = "Leképezési hiba";
 "unexpected.error.message" = "Valami hiba történt. Kérlek próbáld újra később.";
 "favoriteMovies.title" = "Kedvencek";
 "detail.rate.button" = "Értékeld a filmet";
@@ -26,7 +23,8 @@
 "noInternet" = "Nincs internetkapcsolat";
 "addReview.subTitle" = "Írj őszinte véleményt";
 "addReview.buttonTitle" = "Vélemény elküldése";
-"detail.similars.text" = "Hasonló filmek";
+
+"mediaItem.default.duration" = "-";
 
 "settings.title" = "Beállítások";
 "settings.chooseLanguage" = "Nyelv kiválasztása";
@@ -36,3 +34,16 @@
 "settings.lang.hungarian" = "Magyar";
 "settings.theme.light" = "Világos mód";
 "settings.theme.dark" = "Sötét mód";
+"version" = "Verzió";
+"createdby" = "Készítette: Névtelen";
+"detail.topReviews" = "Értékelések [EN]";
+"birthYear" = "Születési év";
+"city" = "Város";
+"bio" = "Életrajz";
+"popularity" = "Népszerűség";
+"appReview.title" = "Értékeld az appot";
+"appReview.desc" = "Nagyra értékeljük ha az App Store-ban értékeled az alkalmazást. Köszönjük";
+"appReview.button.title" = "Rendben";
+"everyone" = "Mindenkinek";
+"adult.only" = "18+";
+"detail.similars.text" = "Hasonló Filmek";

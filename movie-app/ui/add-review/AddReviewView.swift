@@ -8,6 +8,8 @@ struct AddReviewView: View {
     
     @StateObject private var viewModel = AddReviewViewModel()
     
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: LayoutConst.normalPadding) {
@@ -25,6 +27,9 @@ struct AddReviewView: View {
                     VStack (spacing: 72.0){
                         StarRatingView(rating: $viewModel.selectedRating)
                         StyledButton(style: .filled, action: .simple, title: "addReview.buttonTitle")
+                            .onTapGesture {
+                                viewModel.sendReviewSubject.send(())
+                            }
                     }
                     Spacer()
                 }
@@ -33,8 +38,12 @@ struct AddReviewView: View {
         }
         .scrollIndicators(.hidden)
         .padding(.horizontal, LayoutConst.maxPadding)
+        .showAlert(model: $viewModel.alertModel)
         .onAppear {
             viewModel.mediaDetailSubject.send(mediaItemDetail)
+        }
+        .onChange(of: viewModel.success) {
+            dismiss()
         }
     }
 }

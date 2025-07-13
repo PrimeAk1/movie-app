@@ -37,6 +37,7 @@ class CastDetailViewModel: ObservableObject, ErrorPresentable {
                     return Fail(error: MovieError.unexpectedError).eraseToAnyPublisher()
                 }
                 let request = FetchCastMemberDetailRequest(castMemberId: castType.id)
+
                 switch castType {
                 case .castMember:
                     return self.repository.fetchCastMemberDetail(req: request)
@@ -55,7 +56,8 @@ class CastDetailViewModel: ObservableObject, ErrorPresentable {
                 self?.rating = self?.calculateStarRating(for: castDetail.popularity) ?? 0
             })
             .store(in: &cancellables)
-    }
+        }
+    
     
     private func calculateStarRating(for popularity: Double?) -> Int {
         guard let popularity = popularity else { return 0 }

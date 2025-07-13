@@ -12,6 +12,8 @@ import InjectPropertyWrapper
 struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     
+    @EnvironmentObject private var langaugeManager: LanguageManager
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -43,10 +45,9 @@ struct SearchView: View {
                 .padding(.horizontal, LayoutConst.maxPadding)
                 
                 if viewModel.movies.isEmpty {
-                    // Üres állapot
                     VStack {
                         Spacer()
-                        Text("search.empty.title")
+                        Text("search.empty.title".localized())
                             .multilineTextAlignment(.center)
                             .font(Fonts.emptyStateText)
                             .foregroundColor(.invertedMain)
@@ -57,7 +58,7 @@ struct SearchView: View {
                         LazyVStack(spacing: LayoutConst.normalPadding) {
                             ForEach(viewModel.movies) { movie in
                                 NavigationLink(destination: DetailView(mediaItem: movie)) {
-                                                            MediaItemCell(movie: movie)
+                                    MediaItemCell(movie: movie)
                                         .frame(height: 277)
                                 }
                                 .buttonStyle(PlainButtonStyle())
@@ -68,11 +69,7 @@ struct SearchView: View {
                     }
                 }
             }
+             
         }
     }
-}
-
-#Preview {
-    SearchView()
-        .preferredColorScheme(.dark)
 }

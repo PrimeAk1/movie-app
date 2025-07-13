@@ -16,7 +16,6 @@ class NetworkMonitor: NetworkMonitorProtocol {
     }
     
     private var reachability: Reachability
-    //private let isConnectedSubject = PassthroughSubject<Bool, Never>()
     private let isConnectedSubject = CurrentValueSubject<Bool, Never>(true)
     
     init() {

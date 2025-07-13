@@ -6,7 +6,7 @@
 //
 
 
-struct FetchMediaListRequest {
+struct FetchMediaListRequest: LocalizedRequestable {
     let accessToken: String = Config.bearerToken
     let genreId: Int
     let includeAdult: Bool
@@ -16,7 +16,6 @@ struct FetchMediaListRequest {
         return [
             "with_genres": genreId,
             "page": page
-        ]
+        ] + languageParam
     }
 }
-

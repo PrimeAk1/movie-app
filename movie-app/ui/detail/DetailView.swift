@@ -13,6 +13,8 @@ struct DetailView: View {
     let mediaItem: MediaItem
     @Environment(\.dismiss) private var dismiss: DismissAction
     
+    @EnvironmentObject private var langaugeManager: LanguageManager
+    
     var body: some View {
         var mediaItemDetail: MediaItemDetail {
             viewModel.mediaItemDetail
@@ -39,7 +41,7 @@ struct DetailView: View {
                 
                 Text(viewModel.mediaItemDetail.genreList)
                     .font(Fonts.paragraph)
-                MediaItemHeaderView(title: viewModel.mediaItemDetail.title,
+                MediaItemHeaderView(title: mediaItemDetail.title,
                                     year: mediaItemDetail.year,
                                     runtime: "\(mediaItemDetail.runtime)",
                                     spokenLanguages: mediaItemDetail.spokenLanguages)
@@ -50,7 +52,10 @@ struct DetailView: View {
                     }
                     
                     Spacer()
-                    StyledButton(style: .filled, action: .link(mediaItemDetail.imdbURL), title: "detail.imdb.button".localized())
+                    if let imdbURL = mediaItemDetail.imdbURL {
+                        StyledButton(style: .filled, action: .link(imdbURL), title: "detail.imdb.button".localized())
+                    }
+                    
                 }
                 
                 VStack(alignment: .leading, spacing: 12.0) {
@@ -87,7 +92,8 @@ struct DetailView: View {
         }
         .showAlert(model: $viewModel.alertModel)
         .onAppear {
-            viewModel.mediaItemIdSubject.send(mediaItem.id)
+            viewModel.mediaItemSubject.send(mediaItem)
         }
     }
 }
+

@@ -32,7 +32,13 @@ class MediaItemListViewModel: MediaItemListViewModelProtocol, ErrorPresentable {
     
     init() {
         
-        Publishers.CombineLatest(reachedBottomSubject, genreIdSubject)
+        let genreIdNewValue = genreIdSubject.handleEvents(receiveOutput: { [weak self]_ in
+            self?.mediaItems.removeAll()
+            self?.currentPage = 1
+        })
+        .eraseToAnyPublisher()
+        
+        Publishers.CombineLatest(reachedBottomSubject, genreIdNewValue)
             .filter { [weak self]_ in
                 guard let self = self else {
                     preconditionFailure("There is no self")
@@ -49,12 +55,33 @@ class MediaItemListViewModel: MediaItemListViewModelProtocol, ErrorPresentable {
                 guard let self = self else {
                     preconditionFailure("There is no self")
                 }
-                let request = FetchMediaListRequest(genreId: genreId, includeAdult: true, page: self.currentPage)
-                return Environments.name == .tv ?
-                        self.repository.fetchTV(req: request) :
-                        self.repository.fetchMovies(req: request)
                 
-            }
+                let publisher: AnyPublisher<MediaItemPage, MovieError>
+                        let request = FetchMediaListRequest(genreId: genreId, includeAdult: true, page: self.currentPage)
+                        if self.currentPage == 1 {
+                            publisher = Environments.name == .tv ?
+                                self.repository.fetchTVs(req: request) :
+                                self.repository.fetchMovies(req: request)
+                        } else {
+                            publisher = Just(())
+                                .delay(for: .seconds(1), scheduler: RunLoop.main)
+                                .flatMap { _ -> AnyPublisher<MediaItemPage, MovieError> in
+                                    return Environments.name == .tv ?
+                                        self.repository.fetchTVs(req: request) :
+                                        self.repository.fetchMovies(req: request)
+                                }
+                                .eraseToAnyPublisher()
+                        }
+
+                        return publisher
+                    }
+                
+//                let request = FetchMediaListRequest(genreId: genreId, includeAdult: true, page: self.currentPage)
+//                return Environments.name == .tv ?
+//                        self.repository.fetchTVs(req: request) :
+//                        self.repository.fetchMovies(req: request)
+//                
+//            }
             .sink { [weak self] completion in
                 if case let .failure(error) = completion {
                     self?.alertModel = self?.toAlertModel(error)
