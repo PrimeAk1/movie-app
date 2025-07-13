@@ -29,6 +29,7 @@ enum MoviesApi {
     case fetchCompanyDetail(req: FetchCastMemberDetailRequest)
     case addReview(req: AddReviewRequest)
     case fetchSimilarMovies(req: FetchSimilarMoviesRequest)
+    case fetchCombinedCredits(req: FetchCombinedCreditsRequest)
 }
 
 extension MoviesApi: TargetType {
@@ -81,12 +82,14 @@ extension MoviesApi: TargetType {
             return "movie/\(req.mediaId)/rating"
         case .fetchSimilarMovies(req: let req):
             return "movie/\(req.movieId)/similar"
+        case .fetchCombinedCredits(req: let req):
+            return "person/\(req.personId)/combined_credits"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .fetchGenres, .fetchTVGenres, .fetchMovies, .fetchTV, .searchMovies, .searchTVs, .fetchFavoriteMovies, .fetchMovieDetail, .fetchMovieCredits, .fetchMovieReviews, .fetchCastMemberDetail, .fetchCompanyDetail, .fetchTVDetail, .fetchTVCredits, .fetchTVReviews, .fetchFavoriteTVs, .fetchSimilarMovies:
+        case .fetchGenres, .fetchTVGenres, .fetchMovies, .fetchTV, .searchMovies, .searchTVs, .fetchFavoriteMovies, .fetchMovieDetail, .fetchMovieCredits, .fetchMovieReviews, .fetchCastMemberDetail, .fetchCompanyDetail, .fetchTVDetail, .fetchTVCredits, .fetchTVReviews, .fetchFavoriteTVs, .fetchSimilarMovies, .fetchCombinedCredits:
             return .get
         case .editFavoriteMovie, .addReview:
             return .post
@@ -135,6 +138,8 @@ extension MoviesApi: TargetType {
         case .fetchCompanyDetail(req: let req):
             return .requestParameters(parameters: req.asRequestParams(), encoding: URLEncoding.queryString)
         case .fetchSimilarMovies(req: let req):
+            return .requestParameters(parameters: req.asRequestParams(), encoding: URLEncoding.queryString)
+        case .fetchCombinedCredits(req: let req):
             return .requestParameters(parameters: req.asRequestParams(), encoding: URLEncoding.queryString)
         }
     }
@@ -190,6 +195,8 @@ extension MoviesApi: TargetType {
         case .fetchCompanyDetail(req: let req):
             return ["Authorization": req.accessToken]
         case .fetchSimilarMovies(req: let req):
+            return ["Authorization": req.accessToken]
+        case .fetchCombinedCredits(req: let req):
             return ["Authorization": req.accessToken]
         }
     }

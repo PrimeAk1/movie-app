@@ -1,15 +1,15 @@
 //
-//  FetchCombinedCreditsRequest.swift
+//  FetchCombinedCredits.swift
 //  movie-app
 //
-//  Created by Akos  Gegeny   on 2025. 06. 29..
+//  Created by Akos  Gegeny   on 2025. 07. 13..
 //
 
-struct FetchCombinedCreditsRequest {
+struct FetchCombinedCreditsRequest: LocalizedRequestable {
     let accessToken: String = Config.bearerToken
-    let personId: String
+    let personId: Int
     
     func asRequestParams() -> [String: Any] {
-        return [:]
+        return languageParam
     }
 }

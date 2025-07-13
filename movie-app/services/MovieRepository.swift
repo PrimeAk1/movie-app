@@ -32,6 +32,7 @@ protocol MovieRepository {
     func fetchCompanyDetail(req: FetchCastMemberDetailRequest) -> AnyPublisher<CastDetail, MovieError>
     func addReview(req: AddReviewRequest) -> AnyPublisher<ModifyMediaResult, MovieError>
     func fetchSimilarMovies(req: FetchSimilarMoviesRequest) -> AnyPublisher<MediaItemPage, MovieError>
+    func fetchCombinedCredits(req: FetchCombinedCreditsRequest) -> AnyPublisher<CombinedCredits, MovieError>
 }
 
 class MovieRepositoryImpl: MovieRepository {
@@ -115,6 +116,14 @@ class MovieRepositoryImpl: MovieRepository {
             target: MultiTarget(MoviesApi.fetchCompanyDetail(req: req)),
             decodeTo: CompanyDetailResponse.self,
             transform: {  CastDetail(dto: $0) }
+        )
+    }
+    
+    func fetchCombinedCredits(req: FetchCombinedCreditsRequest) -> AnyPublisher<CombinedCredits, MovieError> {
+        requestAndTransform(
+            target: MultiTarget(MoviesApi.fetchCombinedCredits(req: req)),
+            decodeTo: CombinedCreditsResponse.self,
+            transform: { CombinedCredits(dto: $0) }
         )
     }
     

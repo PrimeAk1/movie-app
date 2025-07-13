@@ -76,6 +76,7 @@ struct CastMemberDetailView: View {
                             }
                             .padding(.horizontal)
                             
+                            CombinedCreditsView(personId: castMember.id)
                         }
                         .padding(.bottom, 48)
                     } else {
